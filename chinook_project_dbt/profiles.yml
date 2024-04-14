@@ -9,7 +9,7 @@ chinook_project_dbt:
       user: romainlejeune
       pass: pyross1992
       dbname: chinook
-      schema: 
+      schema: "public"
 
     prod:
       type: postgres

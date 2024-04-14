@@ -3,22 +3,22 @@ chinook_project_dbt:
 
     dev:
       type: postgres
-      threads: [1 or more]
-      host: [host]
-      port: [port]
-      user: [dev_username]
-      pass: [dev_password]
-      dbname: [dbname]
-      schema: [dev_schema]
+      threads: 4
+      host: localhost
+      port: 5432
+      user: romainlejeune
+      pass: pyross1992
+      dbname: chinook
+      schema: 
 
     prod:
       type: postgres
-      threads: [1 or more]
-      host: [host]
-      port: [port]
-      user: [prod_username]
-      pass: [prod_password]
-      dbname: [dbname]
-      schema: [prod_schema]
+      threads: 4
+      host: localhost
+      port: 5432
+      user: romainlejeune
+      pass: pyross1992
+      dbname: chinook
+      schema:
 
   target: dev

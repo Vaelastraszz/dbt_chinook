@@ -1,0 +1,31 @@
+#Create me a template of source.yml file for dbt
+# Path: dbt_chinook/chinook_project_dbt/models/example/sources.yml
+
+version: 2
+
+sources:
+  - name: chinook
+    description: "Database containing the Chinook dataset"
+    tables:
+      - name: album
+        description: "A table containing album data"
+      - name: artist
+        description: "A table containing artist data"
+      - name: customer
+        description: "A table containing customer data"
+      - name: employee
+        description: "A table containing employee data"
+      - name: genre
+        description: "A table containing genre data"
+      - name: invoice
+        description: "A table containing invoice data"
+      - name: invoice_line
+        description: "A table containing invoice line data"
+      - name: media_type
+        description: "A table containing media type data"
+      - name: playlist
+        description: "A table containing playlist data"
+      - name: playlist_track
+        description: "A table containing playlist track data"
+      - name: track
+        description: "A table containing track data"

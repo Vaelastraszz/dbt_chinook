@@ -1,21 +1,21 @@
 {% macro get_genre(genres) %}
 WITH Metal_Rock AS (
     SELECT * 
-    FROM {{ source('chinook', 'genre') }}
+    FROM {{ source('chinook_src', 'genre') }}
     WHERE Name IN {{ genres }}
 ),
 
 Metal_Rock_Tracks AS (
     SELECT 
-        t.TrackId,
+        t.track_id,
         t.Name,
-        t.AlbumId,
-        a.Title AS Album_Name,
-        artists.Name AS Artist_Name
+        t.album_id AS AlbumId,
+        a.title AS Album_Name,
+        artist.name AS Artist_Name
     FROM 
-        {{ source('chinook', 'track') }} t
-        JOIN Metal_Rock m USING (GenreId) 
-        JOIN albums a USING (AlbumId) 
-        JOIN artists USING (ArtistId) 
+        {{ source('chinook_src', 'track') }} t
+        JOIN Metal_Rock m USING (genre_id) 
+        JOIN album a USING (album_id) 
+        JOIN artist USING (artist_id) 
 )
 {% endmacro %}

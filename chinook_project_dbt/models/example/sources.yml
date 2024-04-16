@@ -4,8 +4,10 @@
 version: 2
 
 sources:
-  - name: chinook
+  - name: chinook_src
+    database : chinook
     description: "Database containing the Chinook dataset"
+    schema: public
     tables:
       - name: album
         description: "A table containing album data"

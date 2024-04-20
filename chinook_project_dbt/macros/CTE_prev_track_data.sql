@@ -26,7 +26,7 @@ WITH list_track_sold AS (
         -- Retrieve the invoice date for each customer and invoice date
         i.invoice_date
     FROM 
-        invoice i
+        {{ source('chinook_src', 'invoice') }} i
         {% for table, key in zip(table_list, key_list) %}
         JOIN {{ source('chinook_src', table) }} USING ({{ key }})
         {% endfor %}

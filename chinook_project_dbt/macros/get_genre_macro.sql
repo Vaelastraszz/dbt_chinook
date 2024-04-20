@@ -1,4 +1,23 @@
 {% macro get_genre(genres) %}
+{% set table_list = [
+    "metal_rock",
+    "album",
+    "artist"
+] %}
+
+{% set key_list = [
+    "genre_id",
+    "album_id",
+    "artist_id"
+]%}
+
+{%set aliases = [
+    "m",
+    "a",
+    ""
+]%}
+
+
 WITH Metal_Rock AS (
     SELECT * 
     FROM {{ source('chinook_src', 'genre') }}
@@ -14,8 +33,8 @@ Metal_Rock_Tracks AS (
         artist.name AS Artist_Name
     FROM 
         {{ source('chinook_src', 'track') }} t
-        join metal_rock m using (genre_id) 
-        JOIN album a USING (album_id) 
-        JOIN artist USING (artist_id)
+        {%- for table, key, alias in zip(table_list, key_list, aliases) %}
+        JOIN {{ table }} {{ alias }} USING ({{ key }})
+        {% endfor %}
 )
 {% endmacro %}

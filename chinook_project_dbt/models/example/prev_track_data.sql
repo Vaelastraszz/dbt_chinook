@@ -1,4 +1,5 @@
 {{ config(materialized='view') }}
+
 {% set list_prev_cols = [
     'List_Track_Name',
     'Album_Name',

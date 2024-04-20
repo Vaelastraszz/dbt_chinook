@@ -14,8 +14,8 @@ Metal_Rock_Tracks AS (
         artist.name AS Artist_Name
     FROM 
         {{ source('chinook_src', 'track') }} t
-        JOIN Metal_Rock m USING (genre_id) 
+        join metal_rock m using (genre_id) 
         JOIN album a USING (album_id) 
-        JOIN artist USING (artist_id) 
+        JOIN artist USING (artist_id)
 )
 {% endmacro %}

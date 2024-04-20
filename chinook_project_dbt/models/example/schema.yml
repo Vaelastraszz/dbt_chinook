@@ -32,3 +32,29 @@ models:
         description: "The total number of metal and rock tracks sold"
         tests:
           - not_null
+  
+  - name : prev_track_data
+    description : "Track previous data on all the tracks bu customers to know which track they bought before with the album name and date corresponding to it"
+    columns : 
+      - name : customer_id
+        description : "The primary key for this table"
+        tests:
+          - not_null
+      - name : last_name
+        description : "The last name of the customer"
+        tests:
+          - not_null
+      - name : first_name
+        description : "The first name of the customer"
+        tests:
+          - not_null
+      - name : List_Track_Name
+        description : "The list of track names bought by the customer"
+        tests:
+          - not_null
+      - name : prev_list_track_name
+        description : "The list of track names bought by the customer before"
+      - name : prev_album_name
+        description : "The album name of the track bought by the customer before"
+      - name : prev_invoice_date
+        description : "The date of the invoice of the track bought by the customer before"

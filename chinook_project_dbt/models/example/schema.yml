@@ -58,3 +58,39 @@ models:
         description : "The album name of the track bought by the customer before"
       - name : prev_invoice_date
         description : "The date of the invoice of the track bought by the customer before"
+
+  - name : staging_model_invoices
+    description : "Staging model for invoices"
+    columns : 
+      - name : invoice_id
+        description : "The primary key for this table"
+        tests:
+          - not_null
+      - name : customer_id
+        description : "The customer id for this table"
+        tests:
+          - not_null
+      - name : invoice_date
+        description : "The date of the invoice"
+        tests:
+          - not_null
+      - name : total
+        description : "The total amount of the invoice"
+        tests:
+          - not_null
+      - name : invoice_line_id
+        description : "The primary key for this table"
+        tests:
+          - not_null
+      - name : track_id
+        description : "The track id for this table"
+        tests:
+          - not_null
+      - name : unit_price
+        description : "The unit price of the track"
+        tests:
+          - not_null
+      - name : quantity
+        description : "The quantity of the track"
+        tests:
+          - not_null

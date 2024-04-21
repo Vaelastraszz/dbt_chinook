@@ -5,8 +5,8 @@
     'Album_Name',
     'invoice_date'
 ]%}
-{{ get_track_sold() }}
 
+{{ get_track_sold() }}
 SELECT 
     *,
    {% for col in list_prev_cols %}

@@ -2,28 +2,10 @@
 version: 2
 
 models:
-  - name: my_first_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
-
-  - name: my_second_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
-  
   - name : metal_rock_model
     description: "model to get total number of metal and rock tracks sold"
     columns:
-      - name: TrackId
+      - name: track_id 
         description: "The primary key for this table"
         tests:
           - unique
@@ -74,12 +56,8 @@ models:
         description : "The date of the invoice"
         tests:
           - not_null
-      - name : total
+      - name : invoice_total
         description : "The total amount of the invoice"
-        tests:
-          - not_null
-      - name : invoice_line_id
-        description : "The primary key for this table"
         tests:
           - not_null
       - name : track_id
@@ -90,7 +68,7 @@ models:
         description : "The unit price of the track"
         tests:
           - not_null
-      - name : quantity
+      - name : invoice_quantity
         description : "The quantity of the track"
         tests:
           - not_null

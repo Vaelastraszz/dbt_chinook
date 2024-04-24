@@ -14,6 +14,8 @@ SELECT
     i.invoice_id,
     i.invoice_date,
     i.total AS invoice_total,
+    Extract(YEAR FROM i.invoice_date) AS invoice_year,
+    Extract(MONTH FROM i.invoice_date) AS invoice_month,
     
     -- Invoice Line Information
     il.track_id,

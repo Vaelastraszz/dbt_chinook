@@ -31,3 +31,5 @@ sources:
         description: "A table containing playlist track data"
       - name: track
         description: "A table containing track data"
+      - name : worldcities
+        description: "A table containing worldcities data"

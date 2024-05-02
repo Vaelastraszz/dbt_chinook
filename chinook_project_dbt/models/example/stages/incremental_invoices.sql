@@ -1,5 +1,9 @@
 {{ config(materialized='incremental',
-          unique_id = 'invoice_id, track_id') }}
+          unique_id = 'invoice_id, track_id')
+          merge_exclude_columns = ['invoice_date', 'invoice_total', 'invoice_quantity', 'unit_price'],
+          incremental_strategy='merge'
+           }}
+          
 
 {% set tuples_tables_alias_keys = [
     ('customer', 'c', 'customer_id'),

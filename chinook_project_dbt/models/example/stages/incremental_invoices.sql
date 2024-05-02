@@ -1,6 +1,14 @@
 {{ config(materialized='incremental',
           unique_id = 'invoice_id, track_id') }}
 
+{% set tuples_tables_alias_keys = [
+    ('customer', 'c', 'customer_id'),
+    ('invoice_line', 'il', 'invoice_id'),
+    ('track', 't', 'track_id'),
+    ('album', 'a', 'album_id'),
+    ('artist', 'ar', 'artist_id')
+] %}
+
 SELECT 
     -- Customer Information
     c.customer_id,
@@ -35,16 +43,11 @@ SELECT
     
 FROM 
     invoice i
+
+{% for table, alias, key in tuples_tables_alias_keys %}
 JOIN 
-    customer c USING (customer_id)
-JOIN 
-    invoice_line il USING (invoice_id)
-JOIN 
-    track t USING (track_id)
-JOIN 
-    album a USING (album_id)
-JOIN 
-    artist ar USING (artist_id)
+    {{ table }} {{ alias }} USING ({{ key }})
+{% endfor %}
 
 WHERE 
     i.total > 0

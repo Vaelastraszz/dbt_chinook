@@ -39,3 +39,4 @@ models:
       stages :
         +materialized: view
         +schema : staging
+        +tags : stage

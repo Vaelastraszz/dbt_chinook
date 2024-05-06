@@ -1,7 +1,5 @@
 {{ config(materialized='incremental',
-          unique_id = 'invoice_id, track_id',
-          )
-           }}
+          unique_id = 'invoice_id, track_id')}}
           
 
 {% set tuples_tables_alias_keys = [
